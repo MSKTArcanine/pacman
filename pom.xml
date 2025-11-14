@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.awu.pacman</groupId>
+  <artifactId>pacman</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>pacman</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Java 25 -->
+    <maven.compiler.release>25</maven.compiler.release>
+    <!-- Libs -->
+    <javafx.version>25</javafx.version>
+    <atlantafx.version>2.1.0</atlantafx.version>
+  </properties>
+
+  <dependencies>
+    <!-- JavaFX -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <!-- Optionnel si tu utilises FXML -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+
+    <!-- AtlantaFX (thèmes) -->
+    <dependency>
+      <groupId>io.github.mkpaz</groupId>
+      <artifactId>atlantafx-base</artifactId>
+      <version>${atlantafx.version}</version>
+    </dependency>
+    <dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter</artifactId>
+  <version>5.11.3</version>
+  <scope>test</scope>
+</dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Compiler -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+
+      <!-- JavaFX run -->
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+        <configuration>
+          <!-- ⇩⇩ Mets ICI ta classe Application -->
+          <mainClass>fr.awu.pacman.App</mainClass>
+          <!-- Évite le warning "native access" de JavaFX 25 -->
+          <jvmArgs>
+            <arg>--enable-native-access=javafx.graphics</arg>
+          </jvmArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.5.0</version>
+    </plugin>
+    </plugins>
+  </build>
+</project>
