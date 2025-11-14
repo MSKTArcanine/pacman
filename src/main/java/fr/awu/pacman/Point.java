@@ -1,6 +1,6 @@
 package fr.awu.pacman;
 
-public class Point implements ICollectible{
+public class Point extends GameObject implements ICollectible{
     private int points;
 
     public Point(int points){
@@ -18,5 +18,10 @@ public class Point implements ICollectible{
 
     public int getPoint(){
         return this.points;
+    }
+
+    @Override
+    public String toString(){
+        return "Point"+super.toString();
     }
 }
