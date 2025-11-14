@@ -3,7 +3,7 @@ package fr.awu.pacman;
 public class Point extends GameObject implements ICollectible{
     private int points;
 
-    public Point(int points){
+    public Point(int points, int x, int y){
         this.points = points;
     }
 
