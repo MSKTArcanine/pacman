@@ -21,6 +21,10 @@ public class Player extends Movers implements ICollider {
         return this.score;
     }
 
+    public void addScore(int points){
+        this.score += points;
+    }
+
     @Override
     public void onCollision(GameObject go) {
         if(go instanceof Phantom){
